@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Libros</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container text-center">
+    <figure class="text-center">
+        <blockquote class="blockquote">
+            <h2><b>DISTRIBUIDA | Tarea 1</b></h2>
+        </blockquote>
+        <figcaption class="blockquote-footer">
+            <h4>Erick Gordillo</h4>
+        </figcaption>
+        <figcaption class="blockquote-footer">
+            <h5>2022-2023</h5>
+        </figcaption>
+    </figure>
+    <hr style="color: black; background-color: black; width:100%;" />
+
+    <div class="text-center">
+
+        <h5>Modificar Libro</h5>
+    </div>
+    <form method='post' th:action="@{http://localhost:8081/books/update/{id}(id=${book.id})}">
+
+            <label> ID Libro: <span style="font-size: 20px" th:text="${book.id}"></span></label>
+            <br><br>
+            <label> Ingrese ISBN: </label>
+            <input type="text" name="isbn" th:value="${book.isbn}"/>
+            <br><br>
+            <label>Ingrese Title: </label>
+            <input type="text" name="title" th:value="${book.title}"/>
+            <br><br>
+            <label>Ingrese Title: </label>
+            <input type="text" name="price" th:value="${book.price}"/>
+            <br><br>
+        <div class="text-center">
+
+            <h5>Actualizar Autor del libro</h5>
+        </div>
+        <label>Id Autor: </label>
+        <input type="text" name="author_id" th:value="${book.author_id}"/>
+        <br><br>
+        <label>Ingrese Nombre del Autor: </label>
+        <input type="text" name="first_name" th:value="${author.first_name}"/>
+        <br><br>
+        <label>Ingrese Apellido del Autor: </label>
+        <input type="text" name="last_name" th:value="${author.last_name}"/>
+        <br><br>
+            <button type="submit" >Guardar</button>
+
+    </form>
+</div>
+
+
+</body>
+</html>
